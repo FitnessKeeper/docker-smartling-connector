@@ -8,4 +8,5 @@ RUN wget https://smartling-connector-public.s3.amazonaws.com/repo_connector/repo
     && unzip repo-connector-1.5.4-bin.zip \
     && ln -s repo-connector-1.5.4 repo-connector \
     && rm repo-connector-1.5.4-bin.zip
+WORKDIR /opt/repo-connector
 ENTRYPOINT ["java", "-jar", "/opt/repo-connector/repo-connector-1.5.4.jar", "-start"]
