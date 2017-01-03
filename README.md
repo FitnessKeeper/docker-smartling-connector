@@ -1,5 +1,7 @@
 # docker-smartling-connector
-A docker image based on tomcat that provides the smartling connector from Smartling: http://docs.smartling.com/pages/Repository-Connector/Install-and-Setup/
+A docker image based on openjdk alpine linux that provides the smartling
+connector from Smartling:
+http://docs.smartling.com/pages/Repository-Connector/Install-and-Setup/
 
 To use this image, you must create your configuration file in
 /opt/repo-connector/repo-connector.conf per smartling's installation
