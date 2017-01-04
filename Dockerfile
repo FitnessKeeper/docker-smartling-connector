@@ -14,5 +14,6 @@ RUN wget https://smartling-connector-public.s3.amazonaws.com/repo_connector/repo
 WORKDIR /opt/repo-connector
 RUN adduser -D smartling
 USER smartling
+COPY start-connector.sh start-connector.sh
 COPY repo-connector-template.conf repo-connector-template.conf
 ENTRYPOINT ["start-connector.sh"]
