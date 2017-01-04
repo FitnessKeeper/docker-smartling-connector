@@ -1,7 +1,10 @@
 FROM openjdk:8-jre-alpine
 MAINTAINER John Stucklen <john.stucklen@runkeeper.com>
 
-RUN apk --no-cache add openssl unzip ca-certificates \
+# gettext is used for the envsubst command to make environment variable
+# substitution into the repo-connector config file easy. The remainder
+# of the packages are needed for https access for wget.
+RUN apk --no-cache add gettext openssl unzip ca-certificates \
     && update-ca-certificates
 WORKDIR /opt
 RUN wget https://smartling-connector-public.s3.amazonaws.com/repo_connector/repo-connector-1.5.4-bin.zip \
@@ -9,4 +12,7 @@ RUN wget https://smartling-connector-public.s3.amazonaws.com/repo_connector/repo
     && ln -s repo-connector-1.5.4 repo-connector \
     && rm repo-connector-1.5.4-bin.zip
 WORKDIR /opt/repo-connector
-ENTRYPOINT ["java", "-jar", "/opt/repo-connector/repo-connector-1.5.4.jar", "-start"]
+RUN adduser -D smartling
+USER smartling
+COPY repo-connector-template.conf repo-connector-template.conf
+ENTRYPOINT ["start-connector.sh"]
