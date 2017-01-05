@@ -13,3 +13,9 @@ credentials directly in the template if you'd prefer.
 
 Refer to smartling's configuration docs above for details regarding the
 configuration file.
+
+To properly shutdown the connector you should run the stop-connector.sh
+script located in the image. You can do this with the following command
+on a running connector container:
+
+  `docker exec <CONTAINER_ID> stop-connector.sh`
