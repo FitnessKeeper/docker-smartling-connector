@@ -18,4 +18,4 @@ To properly shutdown the connector you should run the stop-connector.sh
 script located in the image. You can do this with the following command
 on a running connector container:
 
-  `docker exec <CONTAINER_ID> stop-connector.sh`
+  `docker exec <CONTAINER_ID> ./stop-connector.sh`
