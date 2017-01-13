@@ -19,3 +19,9 @@ script located in the image. You can do this with the following command
 on a running connector container:
 
   `docker exec <CONTAINER_ID> ./stop-connector.sh`
+
+The connector checks out all configured branches into a repository cache
+directory in `/opt/repo-connector/cfg/repository-data`. This can be a
+large amount of data if you monitor many branches so this is setup as a
+volume to prevent it from taking a long time to checkout each branch
+again if you make a new container.
