@@ -18,4 +18,5 @@ USER smartling
 COPY start-connector.sh start-connector.sh
 COPY stop-connector.sh stop-connector.sh
 COPY repo-connector-template.conf repo-connector-template.conf
+VOLUME /opt/repo-connector/cfg/repository-data
 ENTRYPOINT ["./start-connector.sh"]
