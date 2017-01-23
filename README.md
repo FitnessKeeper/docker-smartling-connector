@@ -14,6 +14,12 @@ credentials directly in the template if you'd prefer.
 Refer to smartling's configuration docs above for details regarding the
 configuration file.
 
+You may specify two environment variables to configure the java initial
+heap size and java maximum heap size respectively,
+
+JAVA_XMS - Initial java heap size. (default=1024M)
+JAVA_XMX - Maximum java heap size. (default=3584M)
+
 To properly shutdown the connector you should run the stop-connector.sh
 script located in the image. You can do this with the following command
 on a running connector container:
@@ -24,4 +30,5 @@ The connector checks out all configured branches into a repository cache
 directory in `/opt/repo-connector/cfg/repository-data`. This can be a
 large amount of data if you monitor many branches so this is setup as a
 volume to prevent it from taking a long time to checkout each branch
-again if you make a new container.
+again if you make a new container. If you do not explicitly setup a
+volume, an anonymous volume will be created for you on the instance.
