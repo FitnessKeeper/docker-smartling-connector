@@ -26,6 +26,13 @@ port 5555 on the container (with -p) and configure the webhooks in the
 repo connector configuration. See the smartling configuration docs above
 for details regarding configuring webhooks (in the advanced section).
 
+You also can use a -p forwarding parameter for the management port
+(default is 7777) for management of the connector.
+
+Here is smartling's example configuration file including documentation
+for optional settings:
+http://docs.smartling.com/public/Example-Files/repo-connector-complete-example.conf#
+
 To properly shutdown the connector you should run the stop-connector.sh
 script located in the image. You can do this with the following command
 on a running connector container:
