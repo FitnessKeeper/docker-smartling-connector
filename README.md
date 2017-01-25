@@ -26,12 +26,21 @@ port 5555 on the container (with -p) and configure the webhooks in the
 repo connector configuration. See the smartling configuration docs above
 for details regarding configuring webhooks (in the advanced section).
 
-You also can use a -p forwarding parameter for the management port
-(default is 7777) for management of the connector.
-
 Here is smartling's example configuration file including documentation
 for optional settings:
 http://docs.smartling.com/public/Example-Files/repo-connector-complete-example.conf#
+
+AUTHOR NOTE: I've found all of smartling's docs to be fairly poor and/or
+out of date. For the latest potential settings for the configuration,
+look at the application.conf file embedded inside the repo connector jar
+(repo-connector-<VERSION>.jar in the container image). That contains
+defaults for all of the settings. Note that some of these settings are
+defaults for the smartling-config.json file specific to a repository. Of
+particular note, there is no documentation for the mergingStrategy
+setting in here which defaults to LOCAL meaning in the event of a merge
+conflict, the connector will blow away incoming changes (!!!!!). Change
+this to "REMOTE" to have it blow away incoming translations instead.
+Which will just get re-downloaded later. :-P
 
 To properly shutdown the connector you should run the stop-connector.sh
 script located in the image. You can do this with the following command
