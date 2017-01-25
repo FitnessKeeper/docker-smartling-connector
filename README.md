@@ -54,3 +54,12 @@ large amount of data if you monitor many branches so this is setup as a
 volume to prevent it from taking a long time to checkout each branch
 again if you make a new container. If you do not explicitly setup a
 volume, an anonymous volume will be created for you on the instance.
+
+Useful URLs for the connector:
+HOST - Configured host for callbacks (http section in config)
+CALLBACK_PORT - Configured port for callbacks (http section in config)
+http vs. https - Based on configuration in http section as well.
+---
+http(s)://<HOST>:<CALLBACK_PORT>/health - Shows connector health info.
+http(s)://<HOST>:<CALLBACK_PORT>/health/db - Shows status of watched
+files in all branches that we are monitoring.
