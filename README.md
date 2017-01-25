@@ -20,6 +20,12 @@ heap size and java maximum heap size respectively,
 JAVA_XMS - Initial java heap size. (default=1024M)
 JAVA_XMX - Maximum java heap size. (default=3584M)
 
+If you plan to use web hooks to get notifications from either github or
+smartling (for repo changes or translation changes), you must expose
+port 5555 on the container (with -p) and configure the webhooks in the
+repo connector configuration. See the smartling configuration docs above
+for details regarding configuring webhooks (in the advanced section).
+
 To properly shutdown the connector you should run the stop-connector.sh
 script located in the image. You can do this with the following command
 on a running connector container:
