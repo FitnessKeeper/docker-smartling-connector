@@ -12,7 +12,7 @@ WORKDIR /opt
 RUN wget https://smartling-connector-public.s3.amazonaws.com/repo_connector/${CONNECTOR_JAR_PREFIX}-bin.zip \
     && unzip ${CONNECTOR_JAR_PREFIX}-bin.zip \
     && ln -s ${CONNECTOR_JAR_PREFIX} repo-connector \
-    && rm ${CONNETOR_JAR}-bin.zip \
+    && rm ${CONNECTOR_JAR_PREFIX}-bin.zip \
     && rm repo-connector/cfg/repo-connector.conf
 WORKDIR /opt/repo-connector
 RUN adduser -D smartling
