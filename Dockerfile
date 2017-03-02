@@ -11,6 +11,7 @@ RUN apk --no-cache add gettext openssl unzip ca-certificates \
 WORKDIR /opt
 #RUN wget https://smartling-connector-public.s3.amazonaws.com/repo_connector/${CONNECTOR_JAR_PREFIX}-bin.zip \
 #    && unzip ${CONNECTOR_JAR_PREFIX}-bin.zip \
+COPY ${CONNECTOR_JAR_PREFIX}-bin.zip ${CONNECTOR_JAR_PREFIX}-bin.zip
 RUN unzip ${CONNECTOR_JAR_PREFIX}-bin.zip \
     && ln -s ${CONNECTOR_JAR_PREFIX} repo-connector \
     && rm ${CONNECTOR_JAR_PREFIX}-bin.zip \
