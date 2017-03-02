@@ -1,7 +1,7 @@
 FROM openjdk:8-jre-alpine
 MAINTAINER John Stucklen <john.stucklen@runkeeper.com>
 
-ENV CONNECTOR_JAR_PREFIX=repo-connector-1.5.5
+ENV CONNECTOR_JAR_PREFIX=repo-connector-1.5.6-SNAPSHOT
 
 # gettext is used for the envsubst command to make environment variable
 # substitution into the repo-connector config file easy. The remainder
@@ -9,8 +9,9 @@ ENV CONNECTOR_JAR_PREFIX=repo-connector-1.5.5
 RUN apk --no-cache add gettext openssl unzip ca-certificates \
     && update-ca-certificates
 WORKDIR /opt
-RUN wget https://smartling-connector-public.s3.amazonaws.com/repo_connector/${CONNECTOR_JAR_PREFIX}-bin.zip \
-    && unzip ${CONNECTOR_JAR_PREFIX}-bin.zip \
+#RUN wget https://smartling-connector-public.s3.amazonaws.com/repo_connector/${CONNECTOR_JAR_PREFIX}-bin.zip \
+#    && unzip ${CONNECTOR_JAR_PREFIX}-bin.zip \
+RUN unzip ${CONNECTOR_JAR_PREFIX}-bin.zip \
     && ln -s ${CONNECTOR_JAR_PREFIX} repo-connector \
     && rm ${CONNECTOR_JAR_PREFIX}-bin.zip \
     && rm repo-connector/cfg/repo-connector.conf

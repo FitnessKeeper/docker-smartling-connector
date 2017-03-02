@@ -7,4 +7,5 @@ envsubst < repo-connector-template.conf > cfg/repo-connector.conf
 JAVA_XMS=${JAVA_XMS:-1024M}
 JAVA_XMX=${JAVA_XMX:-3584M}
 
-java -Xms${JAVA_XMS} -Xmx${JAVA_XMX} -jar /opt/repo-connector/${CONNECTOR_JAR_PREFIX}.jar -start
+#java -Xms${JAVA_XMS} -Xmx${JAVA_XMX} -jar /opt/repo-connector/${CONNECTOR_JAR_PREFIX}.jar -start
+/opt/repo-connector/runner.sh
