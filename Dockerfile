@@ -15,7 +15,8 @@ COPY ${CONNECTOR_JAR_PREFIX}-bin.zip ${CONNECTOR_JAR_PREFIX}-bin.zip
 RUN unzip ${CONNECTOR_JAR_PREFIX}-bin.zip \
     && ln -s ${CONNECTOR_JAR_PREFIX} repo-connector \
     && rm ${CONNECTOR_JAR_PREFIX}-bin.zip \
-    && rm repo-connector/cfg/repo-connector.conf
+    && rm repo-connector/cfg/repo-connector.conf \
+    && chmod +x repo-connector/runner.sh
 WORKDIR /opt/repo-connector
 RUN adduser -D smartling
 USER smartling
