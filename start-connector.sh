@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Debugging...
-set -x
+#set -x
 
 pid=0
 
