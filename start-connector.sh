@@ -15,5 +15,5 @@ pid="${!}"
 
 # Wait forever, but allow handling signals...
 while true; do
-    tail -f /dev/null & wait ${!}
+    tail -f /dev/null & wait ${pid}
 done
