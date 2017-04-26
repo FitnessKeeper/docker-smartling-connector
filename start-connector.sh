@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Debugging...
+set -x
+
 # Replace environment variables in the configuration file first. Since this
 # is done at runtime by the container it won't be persisted.
 envsubst < repo-connector-template.conf > cfg/repo-connector.conf
@@ -15,5 +18,7 @@ pid="${!}"
 
 # Wait forever, but allow handling signals...
 while true; do
-    tail -f /dev/null & wait ${pid}
+    tail -f /dev/null & wait ${!}
 done
+
+wait ${pid}
