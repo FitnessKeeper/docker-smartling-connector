@@ -3,6 +3,8 @@
 # Debugging...
 set -x
 
+pid=0
+
 # Replace environment variables in the configuration file first. Since this
 # is done at runtime by the container it won't be persisted.
 envsubst < repo-connector-template.conf > cfg/repo-connector.conf
